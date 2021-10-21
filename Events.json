@@ -1,0 +1,15 @@
+{
+  "StartAt": "Получить нужные поля из события",
+  "States": {
+    "Отправить в еплат": {
+      "End": true,
+      "Resource": "grpc:127.0.0.1:5678:send_event_field_to_eplat",
+      "Type": "Task"
+    },
+    "Получить нужные поля из события": {
+      "Next": "Отправить в еплат",
+      "Resource": "grpc:127.0.0.1:5678:get_event_fields",
+      "Type": "Task"
+    }
+  }
+}
